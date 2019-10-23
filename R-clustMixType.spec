@@ -4,17 +4,18 @@
 #
 Name     : R-clustMixType
 Version  : 0.2.1
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/clustMixType_0.2-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/clustMixType_0.2-1.tar.gz
 Summary  : k-Prototypes Clustering for Mixed Variable-Type Data
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-RColorBrewer
-Requires: R-rlang
 BuildRequires : R-RColorBrewer
+BuildRequires : R-assertthat
 BuildRequires : R-rlang
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 No detailed description available
@@ -26,13 +27,13 @@ No detailed description available
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552946254
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571810859
 
 %install
-export SOURCE_DATE_EPOCH=1552946254
+export SOURCE_DATE_EPOCH=1571810859
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -61,12 +62,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  clustMixType || :
+R CMD check --no-manual --no-examples --no-codoc clustMixType || :
 
 
 %files
