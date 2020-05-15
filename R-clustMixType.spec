@@ -4,7 +4,7 @@
 #
 Name     : R-clustMixType
 Version  : 0.2.5
-Release  : 31
+Release  : 32
 URL      : https://cran.r-project.org/src/contrib/clustMixType_0.2-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/clustMixType_0.2-5.tar.gz
 Summary  : k-Prototypes Clustering for Mixed Variable-Type Data
@@ -19,21 +19,22 @@ No detailed description available
 
 %prep
 %setup -q -c -n clustMixType
+cd %{_builddir}/clustMixType
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587694979
+export SOURCE_DATE_EPOCH=1589529288
 
 %install
-export SOURCE_DATE_EPOCH=1587694979
+export SOURCE_DATE_EPOCH=1589529288
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
