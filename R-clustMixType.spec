@@ -4,7 +4,7 @@
 #
 Name     : R-clustMixType
 Version  : 0.2.11
-Release  : 39
+Release  : 40
 URL      : https://cran.r-project.org/src/contrib/clustMixType_0.2-11.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/clustMixType_0.2-11.tar.gz
 Summary  : k-Prototypes Clustering for Mixed Variable-Type Data
